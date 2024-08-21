@@ -4,7 +4,7 @@ import PromptCard from "./PromCard";
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
-    <div className="prompt_layout mt-16">
+    <div className="prompt_layout mt-6">
       {data.map((post) => {
         return (
           <PromptCard
