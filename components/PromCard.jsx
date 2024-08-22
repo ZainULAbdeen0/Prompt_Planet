@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
@@ -17,6 +18,10 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
     <div className="prompt_card">
       <div className="flex justify-between item-start gap-5">
         <div className="flex flex-1 justify-start items-center gap-3 cursor-pointer">
+        <Link href={ session?.user.id!==post.creator._id
+          ?`/user-profile?id=${post.creator._id}&username=${post.creator.username}`
+          : "/profile"
+        }>
           <Image
             src={post.creator.image}
             alt="User_image"
@@ -24,10 +29,16 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
             height={40}
             className="rounded-full"
           />
+          </Link>
           <div className="flex flex-col">
+            <Link href={ session?.user.id!==post.creator._id
+          ?`/user-profile?id=${post.creator._id}&username=${post.creator.username}`
+          : "/profile"
+        }>
             <h3 className="font-satoshi font-semibold text-gray-900">
               {post.creator.username}
             </h3>
+            </Link>
             <p className="text-sm font-inter text-gray-500">
               {post.creator.email}
             </p>
