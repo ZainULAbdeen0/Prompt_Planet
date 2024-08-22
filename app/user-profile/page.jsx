@@ -38,5 +38,3 @@ const guestProfile = () => {
     />
   )
 }
-
-export default guestProfile;
