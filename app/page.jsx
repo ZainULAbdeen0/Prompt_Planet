@@ -1,6 +1,16 @@
 import React from "react";
 import Feed from '@components/Feed';
-const Home = () => {
+
+export async function getServerSideProps() {
+  const response = await fetch('YOUR_API_URL/api/prompt');
+  const prompts = await response.json();
+
+  return {
+    props: { initialPrompts: prompts },
+  };
+}
+
+const Home = ({initialPrompts}) => {
 
   return (
     
@@ -14,7 +24,9 @@ const Home = () => {
         PromptPlanet is an open-source AI prompting tool for modern world to
         discover, create and share creative prompts
       </p>
-      <Feed/>
+      <Feed
+      initialPrompts = {initialPrompts}
+      />
 
     </section>
   );
