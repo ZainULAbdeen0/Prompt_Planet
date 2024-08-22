@@ -1,16 +1,7 @@
 import React from "react";
 import Feed from '@components/Feed';
 
-export async function getServerSideProps() {
-  const response = await fetch('YOUR_API_URL/api/prompt');
-  const prompts = await response.json();
-
-  return {
-    props: { initialPrompts: prompts },
-  };
-}
-
-const Home = ({initialPrompts}) => {
+const Home = () => {
 
   return (
     
@@ -25,7 +16,6 @@ const Home = ({initialPrompts}) => {
         discover, create and share creative prompts
       </p>
       <Feed
-      initialPrompts = {initialPrompts}
       />
 
     </section>

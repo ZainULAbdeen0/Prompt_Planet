@@ -50,7 +50,8 @@ const Feed = ({initialPrompts}) => {
     );
   };
 
-  const fetchPrompts = async () => {
+  useEffect(() => {
+    const fetchPrompts = async () => {
       const response = await fetch(`/api/prompt`, {
         method: "GET",
       });
