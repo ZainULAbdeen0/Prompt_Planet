@@ -51,13 +51,12 @@ const Feed = ({initialPrompts}) => {
   };
 
   const fetchPrompts = async () => {
-    const response = await fetch("/api/prompt", {
-      method: "GET",
-    });
-    const data = await response.json();
-    setPosts(data);
-  };
-  useEffect(() => {
+      const response = await fetch(`/api/prompt`, {
+        method: "GET",
+      });
+      const data = await response.json();
+      setPosts(data);
+    };
     fetchPrompts();
   });
   return (
