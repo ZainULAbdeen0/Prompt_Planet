@@ -29,9 +29,6 @@ const Feed = () => {
   const fetchPosts = async () => {
     const response = await fetch("/api/prompt" , {
       method: "GET",
-      body: JSON.stringify({
-        id : session?.user.id
-      })
     });
     const data = await response.json();
     setAllPosts(data);
