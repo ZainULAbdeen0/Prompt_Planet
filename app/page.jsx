@@ -1,8 +1,14 @@
-import Feed from '@components/Feed';
+import Feed from "@components/Feed";
 
-const Home = () => {
+const Home = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/prompt?limit=6`,
+    {
+      cache: "no-store", // makes sure you always get fresh data
+    }
+  );
+  const initialPrompts = await res.json();
   return (
-   
     <section className="w-full flex-center flex-col">
       <h1 className="head_text text-center">
         Discover and Share
@@ -13,8 +19,7 @@ const Home = () => {
         PromptPlanet is an open-source AI prompting tool for modern world to
         discover, create and share creative prompts
       </p>
-      <Feed/>
-
+      <Feed initialldata={initialPrompts} />
     </section>
   );
 };

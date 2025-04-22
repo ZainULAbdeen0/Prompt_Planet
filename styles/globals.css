@@ -168,3 +168,62 @@
 .flex-between {
   @apply flex justify-between items-center;
 }
+
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 9999;
+}
+
+.toast {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: fade-in 0.3s ease-in;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.toast-success {
+  background-color: #22c55e; /* green */
+}
+
+.toast-error {
+  background-color: #ef4444; /* red */
+}
+
+.toast-info {
+  background-color: #3b82f6; /* blue */
+}
+
+.toast-warning {
+  background-color: #f59e0b; /* amber */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-out {
+  animation: fade-out 0.3s ease-out forwards;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
